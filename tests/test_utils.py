@@ -65,7 +65,14 @@ def test_user_account(text2, account2):
     assert type(user_account(text2)) is tuple
 
 
-def test_number_account_sender():
+@pytest.mark.parametrize('text3, account3', [({'from': 'Maestro 1308795367077170'}, 1308),
+                                            ({'from': 'Счет 46363668439560358409'}, 4636),
+                                            ({'from': 'Счет 26406253703545413262'}, 2640),
+                                            ({'from': 'Счет 71687416928274675290'}, 7168)])
+
+def test_number_account_sender(text3, account3):
+    assert number_account_sender(text3) == account3
+
     pass
 def test_number_account_recipient():
     pass
