@@ -65,10 +65,6 @@ def test_user_account(text2, account2):
     assert type(user_account(text2)) is tuple
 
 
-#@pytest.mark.parametrize('text3, account3', [({'from': 'Maestro 1308795367077170'}, 1308),
-                                            #({'from': 'Счет 46363668439560358409'}, 4636),
-                                            #({'from': 'Счет 26406253703545413262'}, 2640),
-                                           # ({'from': 'Счет 71687416928274675290'}, 7168)])
 
 def test_number_account_sender():
 
@@ -79,7 +75,12 @@ def test_number_account_sender():
 
 
 def test_number_account_recipient():
-    pass
+
+     assert number_account_recipient('58518872592028002662') == '**2662'
+     assert number_account_recipient('20735820461482021315') == '**1315'
+     assert number_account_recipient('18889008294666828266') == '**8266'
+     assert number_account_recipient('96527012349577388612') == '**8612'
+     assert number_account_recipient('35737585785074382265') == '**2265'
 
 
 def test_accessing_the_dict():
